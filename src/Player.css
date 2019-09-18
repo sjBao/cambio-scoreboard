@@ -1,0 +1,66 @@
+.player-card {
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 2rem;
+  margin: 0.5rem 0;
+  border-radius: 15px;
+  box-shadow: 0 3px 10px #CCC;
+}
+
+.profile, .score-card {
+  font-size: 14px;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  height: 130px;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center
+}
+
+.player-card .profile img {
+  width: 80px;
+  border-radius: 50%;
+}
+
+.player-card form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 130px;
+  max-width: 60px;
+}
+
+.player-card form input {
+  width: 55px;
+  height: 2.5em;
+  margin: 25px 0;
+  text-align: center;
+}
+
+.rounds {
+  display: flex;
+  max-width: 525px;
+  overflow: scroll;
+}
+
+.player-card form button {
+  margin: 5px 0;
+  padding: 5px 2px;
+  background-color: rgba(56, 181, 221);
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+}
+
+.score {
+  font-size: 36px;
+  margin: 0;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
