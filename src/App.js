@@ -1,6 +1,9 @@
 import React from 'react';
-import PlayerList from './PlayerList'
-import ScoreBoardMenu from './ScoreBoardMenu'
+import Splash from './pages/Splash';
+import PlayerList from './PlayerList';
+import ScoreBoardMenu from './ScoreBoardMenu';
+import { Switch, Route } from 'react-router-dom';
+import "./App.css";
 
 
 
@@ -17,7 +20,10 @@ class App extends React.Component {
       if (player.id === id) {
         const playerCopy = { ...player };
         playerCopy.rounds.unshift(score || 0);
-        playerCopy.total = playerCopy.rounds.reduce((num, acc) => parseInt(num) + parseInt(acc));
+        playerCopy.total = playerCopy.rounds.reduce((acc, num) => {
+          const total = parseInt(num) + (acc === 50 ? 0 : parseInt(acc));
+          return total === 50 ? 0 : total
+        }, 0);
 
         return playerCopy;
       } else {
@@ -35,13 +41,23 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <PlayerList 
-          players={this.state.players} 
-          addRoundToPlayer={this.addRoundToPlayer}
+      <Switch>
+        <Route path='/scoreboard'
+          component={
+            () => (
+              <div className="App">
+                <PlayerList
+                  players={this.state.players}
+                  addRoundToPlayer={this.addRoundToPlayer}
+                />
+                <ScoreBoardMenu addPlayer={this.addPlayer} />
+              </div>
+            )
+          }
         />
-        <ScoreBoardMenu addPlayer={this.addPlayer} />
-      </div>
+        <Route exact path='/' 
+          component={Splash} />
+      </Switch>
     );
   }
 }

@@ -42,7 +42,7 @@
 .rounds {
   display: flex;
   max-width: 525px;
-  overflow: scroll;
+  overflow-x: auto;
 }
 
 .player-card form button {
