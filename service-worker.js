@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "%20//sjbao.github.io/cambio-scoreboard/precache-manifest.d16b6d050025bae827d4244bd27a9b5e.js"
+  "%20//sjbao.github.io/cambio-scoreboard/precache-manifest.b0f086cb5abcc4707de5e1e0f1294d90.js"
 );
 
 self.addEventListener('message', (event) => {

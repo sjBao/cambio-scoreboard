@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "29bd6ca1ec704da058868b96ca4a9025",
+    "revision": "b84c8d2a21ddec0b650c44d1fd813140",
     "url": "%20//sjbao.github.io/cambio-scoreboard/index.html"
   },
   {
-    "revision": "d3f9a8a2cd768f87e24e",
+    "revision": "6a2a278bb8482d0864ab",
     "url": "%20//sjbao.github.io/cambio-scoreboard/static/css/main.e44a2f03.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "%20//sjbao.github.io/cambio-scoreboard/static/js/2.751f3d66.chunk.js"
   },
   {
-    "revision": "d3f9a8a2cd768f87e24e",
-    "url": "%20//sjbao.github.io/cambio-scoreboard/static/js/main.3a7a854d.chunk.js"
+    "revision": "6a2a278bb8482d0864ab",
+    "url": "%20//sjbao.github.io/cambio-scoreboard/static/js/main.24784618.chunk.js"
   },
   {
     "revision": "5347f51b22d6c5d91a71",
