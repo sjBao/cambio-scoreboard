@@ -19,7 +19,7 @@ class App extends React.Component {
     const newPlayers = this.state.players.map(player => {
       if (player.id === id) {
         const playerCopy = { ...player };
-        playerCopy.rounds.unshift(score || 0);
+        playerCopy.rounds.push(score || 0);
         playerCopy.total = playerCopy.rounds.reduce((acc, num) => {
           const total = parseInt(num) + (acc === 50 ? 0 : parseInt(acc));
           return total === 50 ? 0 : total
@@ -55,7 +55,7 @@ class App extends React.Component {
             )
           }
         />
-        <Route exact path='/' 
+        <Route path='/' 
           component={Splash} />
       </Switch>
     );

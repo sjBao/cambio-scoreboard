@@ -5,14 +5,17 @@ class Player extends Component {
 
   renderRounds() {
     const { rounds } = this.props.player;
-    return rounds.map((score, idx) => {
-      return (
-        <div key={idx} className="score-card">
-          <p className="score">{score}</p>
-          <p className="player-total">Round {rounds.length - idx}</p>
+    const roundComponents = [];
+    for (let i = rounds.length -1; i >= 0; i--) {
+      roundComponents.push(
+        <div key={i} className="score-card">
+          <p className="score">{rounds[i]}</p>
+          <p className="player-total">Round {i}</p>
         </div>
       )
-    })
+      
+    }
+    return roundComponents;
 
   }
 
