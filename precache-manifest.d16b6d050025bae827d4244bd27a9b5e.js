@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "53a0062c7beab1f35b05f04805bc9e38",
+    "revision": "29bd6ca1ec704da058868b96ca4a9025",
     "url": "%20//sjbao.github.io/cambio-scoreboard/index.html"
   },
   {
