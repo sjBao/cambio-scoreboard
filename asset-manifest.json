@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "https://sjbao.github.io/cambio-scoreboard/static/css/main.e44a2f03.chunk.css",
-    "main.js": "https://sjbao.github.io/cambio-scoreboard/static/js/main.3a7a854d.chunk.js",
-    "main.js.map": "https://sjbao.github.io/cambio-scoreboard/static/js/main.3a7a854d.chunk.js.map",
-    "runtime~main.js": "https://sjbao.github.io/cambio-scoreboard/static/js/runtime~main.d8f5c740.js",
-    "runtime~main.js.map": "https://sjbao.github.io/cambio-scoreboard/static/js/runtime~main.d8f5c740.js.map",
-    "static/js/2.751f3d66.chunk.js": "https://sjbao.github.io/cambio-scoreboard/static/js/2.751f3d66.chunk.js",
-    "static/js/2.751f3d66.chunk.js.map": "https://sjbao.github.io/cambio-scoreboard/static/js/2.751f3d66.chunk.js.map",
-    "index.html": "https://sjbao.github.io/cambio-scoreboard/index.html",
-    "precache-manifest.5e9bbe1a7aefd36bb45d140bf2b1d477.js": "https://sjbao.github.io/cambio-scoreboard/precache-manifest.5e9bbe1a7aefd36bb45d140bf2b1d477.js",
-    "service-worker.js": "https://sjbao.github.io/cambio-scoreboard/service-worker.js",
-    "static/css/main.e44a2f03.chunk.css.map": "https://sjbao.github.io/cambio-scoreboard/static/css/main.e44a2f03.chunk.css.map",
-    "static/media/cambioLogo.svg": "https://sjbao.github.io/cambio-scoreboard/static/media/cambioLogo.2380d030.svg"
+    "main.css": "%20//sjbao.github.io/cambio-scoreboard/static/css/main.e44a2f03.chunk.css",
+    "main.js": "%20//sjbao.github.io/cambio-scoreboard/static/js/main.3a7a854d.chunk.js",
+    "main.js.map": "%20//sjbao.github.io/cambio-scoreboard/static/js/main.3a7a854d.chunk.js.map",
+    "runtime~main.js": "%20//sjbao.github.io/cambio-scoreboard/static/js/runtime~main.d8f5c740.js",
+    "runtime~main.js.map": "%20//sjbao.github.io/cambio-scoreboard/static/js/runtime~main.d8f5c740.js.map",
+    "static/js/2.751f3d66.chunk.js": "%20//sjbao.github.io/cambio-scoreboard/static/js/2.751f3d66.chunk.js",
+    "static/js/2.751f3d66.chunk.js.map": "%20//sjbao.github.io/cambio-scoreboard/static/js/2.751f3d66.chunk.js.map",
+    "index.html": "%20//sjbao.github.io/cambio-scoreboard/index.html",
+    "precache-manifest.5e9bbe1a7aefd36bb45d140bf2b1d477.js": "%20//sjbao.github.io/cambio-scoreboard/precache-manifest.5e9bbe1a7aefd36bb45d140bf2b1d477.js",
+    "service-worker.js": "%20//sjbao.github.io/cambio-scoreboard/service-worker.js",
+    "static/css/main.e44a2f03.chunk.css.map": "%20//sjbao.github.io/cambio-scoreboard/static/css/main.e44a2f03.chunk.css.map",
+    "static/media/cambioLogo.svg": "%20//sjbao.github.io/cambio-scoreboard/static/media/cambioLogo.2380d030.svg"
   }
 }
