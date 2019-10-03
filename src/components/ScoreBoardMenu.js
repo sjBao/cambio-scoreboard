@@ -42,6 +42,12 @@ class ScoreBoardMenu extends Component {
     }
   }
 
+  handeDeleteClick = (name, id) => {
+    if (window.confirm(`Are you sure you want to remove ${name} from game?`)) {
+      this.props.removePlayer(id);
+    }
+  }
+
   render() {
     return (
       <aside onClick={this.clearError} className="score-board-menu">
@@ -56,12 +62,12 @@ class ScoreBoardMenu extends Component {
           <button className="btn" type="submit">+</button>
         </form>
 
-        <ul>
+        <ul className="player-tag-list">
           {
             this.props.players.map(({id, name, total}) => (
-              <li key={id}>
+              <li className="player-tag" key={id}>
                 <label htmlFor={`${name}-${id}`}>{this.emoji(total)} {name}</label>
-                <button onClick={() => this.props.removePlayer(id) }>x</button>
+                <button onClick={() => this.handeDeleteClick(name, id)}>x</button>
               </li>
             ))
           }

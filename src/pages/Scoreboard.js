@@ -59,7 +59,7 @@ class Scoreboard extends Component {
 
   removePlayer = playerId => {
     this.setState(prevState => ({
-      players: prevState.players.filter(player => player.id != playerId)
+      players: prevState.players.filter(player => player.id !== playerId)
     }))
   }
 
