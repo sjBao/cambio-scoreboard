@@ -10,7 +10,7 @@ class Player extends Component {
       roundComponents.push(
         <div key={i} className="score-card">
           <p className="score">{rounds[i]}</p>
-          <p className="player-total">Round {i}</p>
+          <p className="player-total">Round {i + 1}</p>
         </div>
       )
       
@@ -29,27 +29,34 @@ class Player extends Component {
   }
 
   render() {
-    const { name, total, img_url } = this.props.player;
+    const { name, total, id } = this.props.player;
     return (
       <div className="player-card">
-        <div className="profile">
-          <img src={img_url} alt="" />
-          <p className="player-name">{name}</p>
-        </div>
+        <label 
+          htmlFor={`${name}-${id}`} 
+          className="player-name">
+          {name}
+        </label>
         
         <div className="score-card total">
-          <p style={{ fontSize: '50px' }} className="score">{total}</p>
+          <p style={{ fontSize: '24px' }} className="score">{total}</p>
           <p className="player-total">Total</p>
         </div>
+
+        <form onSubmit={this.handleSubmit}>
+          <input
+            placeholder="0"
+            id={`${name}-${id}`} 
+            name="score" 
+            type="number" 
+            max="51" 
+            min="-2" />
+          <button type="submit">Add Score</button>
+        </form>
 
         <div className="rounds">
           {this.renderRounds()}
         </div>
-
-        <form onSubmit={this.handleSubmit}>
-          <input name="score" type="number" placeholder="score" />
-          <button type="submit">Add Score</button>
-        </form>
       </div>
     )
   }

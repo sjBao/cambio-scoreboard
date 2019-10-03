@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
-import cambioLogo from '../cambioLogo.svg'
+import React from 'react'
 import { Link } from 'react-router-dom';
+import Rules from '../components/Rules';
+import CambioLogo from '../components/CambioLogo';
 
 import './Splash.css'
 
@@ -34,22 +35,9 @@ const rules = [
 const Splash = () => {
   return (
     <article>
-      <header>
-        <img id="logo" src={cambioLogo} alt="cambio" />
-      </header>
+      <CambioLogo />
       <Link className="new-game-btn" to="/scoreboard">New Game</Link>
-      <section className="rules">
-        {
-          rules.map( ({card, desc}) => 
-            <div className="rule-card">
-              <p className="card-value">{card}</p>
-              <p className="power-description">
-                {desc.map(txt => <span>{txt}</span>)}
-              </p>
-            </div>
-          )
-        }
-      </section>
+      <Rules rules={rules} />
     </article>
   )
 }

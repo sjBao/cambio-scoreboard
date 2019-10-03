@@ -1,0 +1,70 @@
+.score-board-menu {
+  background-color: rgba(10, 9, 8, .3);
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  margin-right: 15px;
+  max-width: 200px;
+  min-width: 140px;
+}
+
+.new-player-form {
+  margin: 1rem;
+}
+
+.new-player-form button {
+  padding: 0 7px;
+  padding-bottom: 3px;
+  font-size: 1em;
+  vertical-align: middle;
+  background-color: transparent;
+  color: white;
+  font-weight: bold;
+  border: 1px solid whitesmoke;
+  border-radius: 2px;
+}
+
+.new-player-form button:hover {
+  transform: scale(1.1);
+}
+
+.new-player-form input {
+  max-width: 100px;
+  margin: 5px;
+  font-size: 14px;
+  background-color: transparent;
+  color: whitesmoke;
+  border: none;
+  border-bottom: 1px solid whitesmoke;
+}
+
+.new-player-form input:focus, .new-player-form input:active {
+  outline: none;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  font-style: oblique;
+  position: absolute;
+  top: 0;
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-3px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(3px, 0, 0);
+  }
+}
+

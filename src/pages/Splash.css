@@ -10,6 +10,7 @@ section.rules {
 img#logo {
   display: block;
   margin: 4rem auto;
+  width: 50%;
 }
 
 .rule-card {

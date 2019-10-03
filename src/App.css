@@ -6,3 +6,7 @@ body {
   background-color: #1F3339;
   color: #F0F2F3;
 }
+
+button:active, button:focus {
+  outline: none;
+}
