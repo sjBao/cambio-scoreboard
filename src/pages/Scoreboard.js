@@ -12,7 +12,7 @@ class Scoreboard extends Component {
         {
           id: 0,
           name: 'Tony',
-          rounds: [1,2,3],
+          rounds: [1, 2, 3],
           total: 6
         },
         {
@@ -46,19 +46,23 @@ class Scoreboard extends Component {
         return player
       }
     })
-    this.setState({ players: newPlayers }, 
-      () => this.saveGame(this.state)
-    )
+    this.setState({ players: newPlayers })
   }
 
-  saveGame = state => localStorage.setItem('cambio', JSON.stringify(state)) 
+  saveGame = state => localStorage.setItem('cambio', JSON.stringify(state))
 
   addPlayer = newPlayerObj => {
     this.setState({
       players: [...this.state.players, newPlayerObj]
-    }, () => this.saveGame(this.state))
+    })
   }
-  
+
+  removePlayer = playerId => {
+    this.setState(prevState => ({
+      players: prevState.players.filter(player => player.id != playerId)
+    }))
+  }
+
   componentDidMount() {
     const previousGame = localStorage.getItem('cambio')
     if (previousGame) {
@@ -66,11 +70,16 @@ class Scoreboard extends Component {
     }
   }
 
+  componentDidUpdate() {
+    this.saveGame(this.state);
+  }
+
   render() {
     return (
       <article className="Scoreboard">
         <ScoreBoardMenu
           players={this.state.players}
+          removePlayer={this.removePlayer}
           addPlayer={this.addPlayer} />
         <PlayerList
           players={this.state.players}

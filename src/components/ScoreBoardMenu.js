@@ -61,6 +61,7 @@ class ScoreBoardMenu extends Component {
             this.props.players.map(({id, name, total}) => (
               <li key={id}>
                 <label htmlFor={`${name}-${id}`}>{this.emoji(total)} {name}</label>
+                <button onClick={() => this.props.removePlayer(id) }>x</button>
               </li>
             ))
           }
