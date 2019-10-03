@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7c6e2ecfb74097ee8cecb88191cf6499",
+    "revision": "a4a8c1c275c667014a15d6391e7553c9",
     "url": "%20//sjbao.github.io/cambio-scoreboard/index.html"
   },
   {
-    "revision": "81a12e917d8822e5bca4",
-    "url": "%20//sjbao.github.io/cambio-scoreboard/static/css/main.e44a2f03.chunk.css"
+    "revision": "7b059bd6899dbd1f9b5e",
+    "url": "%20//sjbao.github.io/cambio-scoreboard/static/css/main.13f72261.chunk.css"
   },
   {
-    "revision": "942fa8e538eeedf6a8d3",
-    "url": "%20//sjbao.github.io/cambio-scoreboard/static/js/2.751f3d66.chunk.js"
+    "revision": "379cb48ef0ccdb483e0d",
+    "url": "%20//sjbao.github.io/cambio-scoreboard/static/js/2.f072b007.chunk.js"
   },
   {
-    "revision": "81a12e917d8822e5bca4",
-    "url": "%20//sjbao.github.io/cambio-scoreboard/static/js/main.648b6ee8.chunk.js"
+    "revision": "7b059bd6899dbd1f9b5e",
+    "url": "%20//sjbao.github.io/cambio-scoreboard/static/js/main.f26d6b8d.chunk.js"
   },
   {
     "revision": "5347f51b22d6c5d91a71",
