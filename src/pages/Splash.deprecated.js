@@ -1,12 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
-import Rules from '../components/Rules';
-import CambioLogo from '../components/CambioLogo';
+import { Link } from 'react-router-dom'
+import Rules from '../components/Rules'
+import CambioLogo from '../components/CambioLogo'
 
 import './Splash.css'
 
 const rules = [
-  { 
+  {
     card: '7, 8',
     desc: ['Look at a card from your own hand.']
   },
@@ -36,7 +36,7 @@ const Splash = () => {
   return (
     <article>
       <CambioLogo />
-      <Link className="new-game-btn" to="/scoreboard">New Game</Link>
+      <Link class="new-game-btn" to="/scoreboard">New Game</Link>
       <Rules rules={rules} />
     </article>
   )
