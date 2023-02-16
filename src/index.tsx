@@ -7,7 +7,7 @@ render(
 	() => (
 		<Router>
 			<Routes>
-				<Route path="/" component={Splash} />
+				<Route path="/cambio-scoreboard" component={Splash} />
 			</Routes>
 		</Router>
 	), 
