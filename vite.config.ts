@@ -7,6 +7,11 @@ export default defineConfig({
         port: 3000
     },
     build: {
-        target: 'esnext'
+        target: 'esnext',
+    },
+    experimental: {
+        renderBuiltUrl(filename) {
+            return `/cambio-scoreboard/${filename}`
+        }
     }
 })
