@@ -2,16 +2,11 @@
   "name": "cambio-score-board",
   "version": "1.0.0",
   "private": true,
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.8.1"
-  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
     "deploy": "gh-pages -d build"
   },
   "browserslist": {
@@ -26,5 +21,13 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https: //sjbao.github.io/cambio-scoreboard/"
+  "homepage": "https: //sjbao.github.io/cambio-scoreboard/",
+  "devDependencies": {
+    "typescript": "^4.9.5",
+    "vite": "^4.1.1",
+    "vite-plugin-solid": "^2.5.0"
+  },
+  "dependencies": {
+    "solid-js": "^1.6.11"
+  }
 }
