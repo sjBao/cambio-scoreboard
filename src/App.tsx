@@ -3,7 +3,7 @@ import { Splash } from './pages/Splash'
 import './App.css'
 
 export const App: Component = () => {
-    return (
-        <Splash />
-    )
+	return (
+			<Splash />
+	)
 }

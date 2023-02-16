@@ -1,7 +1,16 @@
 import { render } from 'solid-js/web'
-import { App } from './App'
+import { Router, Routes, Route } from '@solidjs/router'
+import { Splash } from './pages/Splash'
+import './App.css'
 
-const root = document.getElementById('root')
-
-render( () => <App />, root! )
+render(
+	() => (
+		<Router>
+			<Routes>
+				<Route path="/" component={Splash} />
+			</Routes>
+		</Router>
+	), 
+	document.getElementById('root')!
+)
 

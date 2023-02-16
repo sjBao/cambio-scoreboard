@@ -3,11 +3,11 @@
   --font-family-abhaya: 'Abhaya Libre', serif;
   --font-size-xs: 0.35rem;
   --font-size-s: 0.5rem;
-  --font-size-normal: 0.75rem;
-  --font-size-l: 1rem;
-  --font-size-xl: 1.5rem;
+  --font-size-normal: 1rem;
+  --font-size-l: 1.25rem;
+  --font-size-xl: 1.75rem;
   --font-size-xxl: 2.0rem;
-  --font-size-logo: 4rem;
+  --font-size-logo: 4.5rem;
 
   --color-off-white: rgba( 240, 242, 243, 0.99);
   --color-dark-blue: rgba(0, 18, 45, 0.99);
