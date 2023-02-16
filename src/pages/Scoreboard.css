@@ -1,8 +1,0 @@
-.Scoreboard {
-  width: auto;
-  margin: 0 auto;
-  background-color: rgba(10, 9, 8, .3);
-  display: flex;
-  flex-direction: row;
-  border-radius: 15px;
-}

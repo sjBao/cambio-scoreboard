@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import PlayerList from '../components/PlayerList';
-import ScoreBoardMenu from '../components/ScoreBoardMenu';
+import React, { Component } from 'react'
+import PlayerList from '../components/PlayerList'
+import ScoreBoardMenu from '../components/ScoreBoardMenu'
 
 import './Scoreboard.css'
 
 class Scoreboard extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       players: [
@@ -34,14 +34,14 @@ class Scoreboard extends Component {
   addRoundToPlayer = (id, score) => {
     const newPlayers = this.state.players.map(player => {
       if (player.id === id) {
-        const playerCopy = { ...player };
-        playerCopy.rounds.push(score || 0);
+        const playerCopy = { ...player }
+        playerCopy.rounds.push(score || 0)
         playerCopy.total = playerCopy.rounds.reduce((acc, num) => {
-          const total = parseInt(num) + (acc === 50 ? 0 : parseInt(acc));
+          const total = parseInt(num) + (acc === 50 ? 0 : parseInt(acc))
           return total === 50 ? 0 : total
-        }, 0);
+        }, 0)
 
-        return playerCopy;
+        return playerCopy
       } else {
         return player
       }
@@ -63,20 +63,20 @@ class Scoreboard extends Component {
     }))
   }
 
-  componentDidMount() {
+  componentDidMount () {
     const previousGame = localStorage.getItem('cambio')
     if (previousGame) {
       this.setState(JSON.parse(previousGame))
     }
   }
 
-  componentDidUpdate() {
-    this.saveGame(this.state);
+  componentDidUpdate () {
+    this.saveGame(this.state)
   }
 
-  render() {
+  render () {
     return (
-      <article className="Scoreboard">
+      <article class="Scoreboard">
         <ScoreBoardMenu
           players={this.state.players}
           removePlayer={this.removePlayer}
@@ -90,4 +90,4 @@ class Scoreboard extends Component {
   }
 }
 
-export default Scoreboard;
+export default Scoreboard

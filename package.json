@@ -1,22 +1,13 @@
 {
-  "name": "cambio-score-board",
-  "version": "0.1.0",
+  "name": "cambio-scoreboard",
+  "version": "1.0.0",
   "private": true,
-  "dependencies": {
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "3.1.1"
-  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "deploy": "gh-pages -d build"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "deploy": "vite build && gh-pages -d dist"
   },
   "browserslist": {
     "production": [
@@ -30,5 +21,24 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https: //sjbao.github.io/cambio-scoreboard/"
+  "homepage": "https: //sjbao.github.io/cambio-scoreboard/",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "^8.34.0",
+    "eslint-config-standard-with-typescript": "^34.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-solid": "^0.9.4",
+    "gh-pages": "^5.0.0",
+    "typescript": "^4.9.5",
+    "vite": "^4.1.1",
+    "vite-plugin-solid": "^2.5.0"
+  },
+  "dependencies": {
+    "@solidjs/router": "^0.7.0",
+    "solid-js": "^1.6.11"
+  }
 }
