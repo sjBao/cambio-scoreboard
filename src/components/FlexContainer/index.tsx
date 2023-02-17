@@ -25,8 +25,6 @@ export const FlexContainer: Component<FlexContainerProps> = ({
         return classNameMapping
     }, {} as Record<string, boolean>)
 
-    console.log("**** flexAignItems: ", alignItems)
-
     return (
         <div 
             classList={{
