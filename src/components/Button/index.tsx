@@ -1,13 +1,21 @@
-import type { Component } from "solid-js";
+import type { Component, JSX } from "solid-js";
 import styles from './Button.module.css'
 
-interface ButtonProps {
+interface ButtonProps extends JSX.ButtonHTMLAttributes<HTMLButtonElement> {
     label?: string
+    light?: boolean
 }
 
-export const Button: Component<ButtonProps> = ({ label }) => {
+export const Button: Component<ButtonProps> = (props) => {
+    const { label, light } = props
     return(
-        <button class={styles.button}>
+        <button 
+            classList={{
+                [styles.button]: true,
+                [styles.light]: light
+            }} 
+            {...props} 
+        >
             {label}
         </button>
     )
