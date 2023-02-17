@@ -1,8 +1,8 @@
 # cambio-scoreboard
 This is a package.json file for the cambio-scoreboard project.
-- package manager: pnpm
-- js-library: solidjs
-- bundler: vite
+- package manager: [`pnpm`](https://pnpm.io/)
+- js-library: [`solidjs`](https://www.solidjs.com/guides/getting-started)
+- bundler: [`vite`](https://vitejs.dev/)
 
 ## Installation
 You can install the project's dependencies by running `pnpm install` in the project directory.
