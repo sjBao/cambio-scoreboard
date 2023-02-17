@@ -14,5 +14,5 @@ The following scripts are available for use:
 `dev`: runs the project using Vite in development mode
 `build`: builds the project using Vite
 `serve`: previews the built project using Vite
-`deploy`: builds the project using Vite and deploys it to GitHub Pages
+`deploy`: builds the project using Vite and deploys it to [GitHub Pages](https://pages.github.com/)
 To run a script, use the command npm run [script name], for example npm run start.
