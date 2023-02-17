@@ -1,0 +1,91 @@
+.flexContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.flexDirectionRow {
+	flex-direction: row;
+}
+
+.flexDirectionRowReverse {
+	flex-direction: row-reverse;
+}
+
+.flexDirectionColumn {
+	flex-direction: column;
+}
+
+.flexDirectionColumnReverse {
+	flex-direction: column-reverse;
+}
+
+.flexWrapWrap {
+	flex-wrap: wrap;
+}
+
+.flexWrapReverse {
+	flex-wrap: wrap-reverse;
+}
+
+.flexWrapNoWrap {
+	flex-wrap: nowrap;
+}
+
+.flexJustifyContentStart {
+	justify-content: flex-start;
+}
+
+.flexJustifyContentEnd {
+	justify-content: flex-end;
+}
+
+.flexJustifyContentCenter {
+	justify-content: center;
+}
+
+.flexJustifyContentSpaceBetween {
+	justify-content: space-between;
+}
+
+.flexJustifyContentSpaceAround {
+	justify-content: space-around;
+}
+
+.flexJustifyContentSpaceEvenly {
+	justify-content: space-evenly;
+}
+
+.flexAlignItemsStart {
+	align-items: flex-start;
+}
+
+.flexAlignItemsEnd {
+	align-items: flex-end;
+}
+
+.flexAlignItemsCenter {
+	align-items: center;
+}
+
+.flexAlignItemsBaseline {
+	align-items: baseline;
+}
+
+.flexAlignItemsStretch {
+	align-items: stretch;
+}
+
+.gridGapSmall {
+	grid-gap: 1rem;
+}
+
+.gridGapMedium {
+	grid-gap: 2rem;
+}
+
+.gridGapLarge {
+	grid-gap: 3rem;
+}
+

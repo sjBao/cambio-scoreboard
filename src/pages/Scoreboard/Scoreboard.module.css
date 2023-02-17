@@ -1,0 +1,24 @@
+.addPlayerForm {
+  width: 100%;
+}
+
+.playerContainer {
+  margin-bottom: var(--spacing-normal);
+}
+
+.playerIcon {
+  align-items: center;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  display: flex;
+  font-family: var(--font-family-abhaya);
+  font-size: var(--font-size-xxl);
+  height: 50px;
+  justify-content: center;
+  margin-bottom: var(--spacing-s);
+  width: 50px;
+}
+
+.playerName {
+  font-size: var(--font-size-normal);
+}

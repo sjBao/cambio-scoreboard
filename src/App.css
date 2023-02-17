@@ -1,4 +1,6 @@
 :root {
+  --border-radius: 0.5rem;
+
   --font-family-roboto: 'Roboto', sans-serif;
   --font-family-abhaya: 'Abhaya Libre', serif;
   --font-size-xs: 0.35rem;
@@ -10,8 +12,17 @@
   --font-size-logo: 4.5rem;
 
   --color-off-white: rgba( 240, 242, 243, 0.99);
+  --color-off-white-disabled: rgba( 240, 242, 243, 0.35);
   --color-dark-blue: rgba(0, 18, 45, 0.99);
   --color-light-red: rgba(211, 112, 112);
+
+
+  --spacing-xs: 0.25rem;
+  --spacing-s: 0.5rem;
+  --spacing-normal: 1rem;
+  --spacing-l: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-xxl: 3rem;
 }
 
 html {
@@ -24,18 +35,14 @@ body {
   color: var(--color-off-white);
   display: flex;
   flex-direction: column;
+  padding: 0;
+  margin: 0;
 }
 
-button {
-  cursor: pointer;
-  box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
-  transition: 0.3s;
+main {
+  padding: 0 var(--spacing-l);
 }
 
-button:active, button:focus {
-  outline: none;
-}
-
-button:active {
-  transform: translateY(2px);
+#root{
+  width: 100%;
 }
