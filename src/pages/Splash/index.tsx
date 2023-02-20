@@ -7,7 +7,6 @@ import { SPLASH_PAGE_CONTENT } from "./copy";
 import styles from './Splash.module.css';
 
 export const Splash: Component = () => {
-
 	const navigate = useNavigate();
 
 	return (

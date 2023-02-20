@@ -1,5 +1,5 @@
-import type { Component, Accessor } from "solid-js";
-import { For } from 'solid-js'
+import type { Component } from "solid-js";
+import { For, batch, createSignal } from 'solid-js'
 
 import styles from './Scoreboard.module.css'
 
@@ -8,21 +8,30 @@ import { FlexContainer } from "../../components/FlexContainer";
 import { Text } from '../../components/Text';
 import { Button } from "../../components/Button";
 import { Player } from "./Player";
+import { useGameContext } from "../../contexts/Game";
 
 
-interface CreateNewGameProps {
-  players: Accessor<string[]>;
-  newPlayerInput: Accessor<string>;
-  handleAddPlayer: (event: SubmitEvent) => void;
-  setNewPlayerInput: (value: string) => void;
-}
+interface CreateNewGameProps {}
 
-export const CreateNewGame: Component<CreateNewGameProps>  = ({
-  players,
-  newPlayerInput,
-  handleAddPlayer,
-  setNewPlayerInput
-}) => {
+export const CreateNewGame: Component<CreateNewGameProps>  = () => {
+  const [state, { addPlayer, setGameStatus }] = useGameContext()
+  const [newPlayerInput, setNewPlayerInput] = createSignal<string>('');
+
+  function handleAddPlayer(event: SubmitEvent) {
+		event.preventDefault()
+		const target = event.target as typeof event.target & {
+			["new-player"]: HTMLInputElement
+		}
+		const newPlayerName = target["new-player"].value
+
+		if (newPlayerName) {
+			batch(() => {
+				addPlayer(newPlayerName)
+				setNewPlayerInput('')
+			})
+		}
+	}
+
   return (
     <>
       <TextInput
@@ -47,13 +56,17 @@ export const CreateNewGame: Component<CreateNewGameProps>  = ({
       <div>
         <Text align="center" size="large">Current Players</Text>
         <FlexContainer>
-          <For each={players()}>
+          <For each={state.players}>
             { (player) => <Player name={player} /> }
           </For>
         </FlexContainer>
       </div>
 
-      <Button disabled={!players().length} label="START GAME" />
+      <Button 
+        disabled={!state.players.length} 
+        label="START GAME"
+        onClick={() => setGameStatus('in-progress')}
+      />
     </>
   )
 }
