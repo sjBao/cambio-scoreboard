@@ -1,17 +1,16 @@
-import { children, Component, JSX } from "solid-js"
+import {  ParentComponent } from "solid-js"
 
 import styles from './FlexContainer.module.css'
 
 interface FlexContainerProps {
     alignItems?: 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'stretch'
-    children?: JSX.Element
     className?: string
     flexDirection?: 'row' | 'column' | 'row-reverse' | 'column-reverse'
     flexWrap?: 'nowrap' | 'wrap' | 'wrap-reverse'
     gridGap?: 'sm' | 'md' | 'lg'
     justifyContent?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly'
 }
-export const FlexContainer: Component<FlexContainerProps> = ({ 
+export const FlexContainer: ParentComponent<FlexContainerProps> = ({ 
     children, 
     className,
     flexDirection, 

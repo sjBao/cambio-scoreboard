@@ -1,6 +1,7 @@
 :root {
   --border-radius: 0.5rem;
 
+  --font-family-arial: 'Arial', sans-serif;
   --font-family-roboto: 'Roboto', sans-serif;
   --font-family-abhaya: 'Abhaya Libre', serif;
   --font-size-xs: 0.35rem;
