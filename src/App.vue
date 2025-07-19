@@ -1,19 +1,17 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import CambioLogo from './components/CambioLogo.vue'
+import ScoreboardTable from './components/ScoreboardTable.vue'
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <CambioLogo msg="CAMBIO" />
     </div>
   </header>
 
   <main>
-    <TheWelcome />
+    <ScoreboardTable />
   </main>
 </template>
 
@@ -28,19 +26,12 @@ header {
 }
 
 @media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
   .logo {
+    display: block;
     margin: 0 2rem 0 0;
   }
 
   header .wrapper {
-    display: flex;
-    place-items: flex-start;
     flex-wrap: wrap;
   }
 }
