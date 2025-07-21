@@ -183,7 +183,7 @@ const confirmResetRounds = () => {
 
 .control-panel {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   margin-bottom: 1rem;
   gap: 1rem;
 
@@ -205,9 +205,14 @@ const confirmResetRounds = () => {
     }
 
     &.secondary {
-      /* invert color as primary for secondary buttons */
-      color: #333;
-      background-color: #f0f0f0;
+      background: #374151;
+      color: #d1d5db;
+      border-color: #4b5563;
+
+      &:hover {
+        background: #4b5563;
+        border-color: #6b7280;
+      }
     }
   }
 }
