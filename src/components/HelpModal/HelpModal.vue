@@ -8,7 +8,11 @@
 
       <div class="modal-content">
         <div class="card-section">
-          <div class="card-info">
+          <div
+            class="card-info"
+            @mouseenter="showTooltip('look-self', $event)"
+            @mouseleave="hideTooltip"
+          >
             <div class="card-icons">
               <IconCard7 />
               <IconCard8 />
@@ -19,7 +23,11 @@
             </div>
           </div>
 
-          <div class="card-info">
+          <div
+            class="card-info"
+            @mouseenter="showTooltip('look-others', $event)"
+            @mouseleave="hideTooltip"
+          >
             <div class="card-icons">
               <IconCard9 />
               <IconCard10 />
@@ -30,7 +38,11 @@
             </div>
           </div>
 
-          <div class="card-info">
+          <div
+            class="card-info"
+            @mouseenter="showTooltip('blind-swap', $event)"
+            @mouseleave="hideTooltip"
+          >
             <div class="card-icons">
               <IconCardJack />
               <IconCardQueen />
@@ -44,7 +56,11 @@
             </div>
           </div>
 
-          <div class="card-info">
+          <div
+            class="card-info"
+            @mouseenter="showTooltip('look-swap', $event)"
+            @mouseleave="hideTooltip"
+          >
             <div class="card-icons">
               <IconCardKingBlack />
             </div>
@@ -57,7 +73,11 @@
             </div>
           </div>
 
-          <div class="card-info">
+          <div
+            class="card-info"
+            @mouseenter="showTooltip('minus-point', $event)"
+            @mouseleave="hideTooltip"
+          >
             <div class="card-icons">
               <IconCardKingRed />
             </div>
@@ -67,7 +87,11 @@
             </div>
           </div>
 
-          <div class="card-info">
+          <div
+            class="card-info"
+            @mouseenter="showTooltip('zero-points', $event)"
+            @mouseleave="hideTooltip"
+          >
             <div class="card-icons">
               <IconCardJoker />
             </div>
@@ -87,10 +111,23 @@
         </div>
       </div>
     </div>
+
+    <!-- Tooltip -->
+    <div
+      v-if="activeTooltip"
+      class="tooltip"
+      :style="{
+        left: tooltipPosition.x + 'px',
+        top: tooltipPosition.y + 'px',
+      }"
+    >
+      {{ tooltips[activeTooltip] }}
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
 import IconCard7 from '../icons/IconCard7.vue'
 import IconCard8 from '../icons/IconCard8.vue'
 import IconCard9 from '../icons/IconCard9.vue'
@@ -110,6 +147,32 @@ defineProps<Props>()
 const emit = defineEmits<{
   close: []
 }>()
+
+// Tooltip state
+const activeTooltip = ref<string | null>(null)
+const tooltipPosition = ref({ x: 0, y: 0 })
+
+// Tooltip content - you can replace these with your own text
+const tooltips: Record<string, string> = {
+  'look-self': `Seven, Eight, what's on my plate?`,
+  'look-others': 'Nine, Ten, look at friend',
+  'blind-swap': `J, Q, swap with you`,
+  'look-swap': 'King is black, plan your attack',
+  'minus-point': 'King is red, minus point and get ahead',
+  'zero-points': 'Joker is a hero and a zero',
+}
+
+const showTooltip = (ruleId: string, event: MouseEvent) => {
+  activeTooltip.value = ruleId
+  tooltipPosition.value = {
+    x: event.clientX + 10,
+    y: event.clientY - 10,
+  }
+}
+
+const hideTooltip = () => {
+  activeTooltip.value = null
+}
 
 const handleOverlayClick = (e: Event) => {
   const target = e.target as HTMLElement
@@ -191,16 +254,6 @@ const closeModal = () => {
   font-weight: 600;
 }
 
-.card-info {
-  display: flex;
-  gap: 16px;
-  margin-bottom: 20px;
-  padding: 16px;
-  background-color: var(--color-background-soft);
-  border-radius: 8px;
-  border: 1px solid var(--color-border);
-}
-
 .card-icons {
   display: flex;
   gap: 8px;
@@ -244,6 +297,41 @@ const closeModal = () => {
   color: var(--color-text);
   line-height: 1.5;
   font-style: italic;
+}
+
+/* Tooltip styles */
+.tooltip {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  max-width: 250px;
+  z-index: 1001;
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  word-wrap: break-word;
+  line-height: 1.4;
+}
+
+.card-info {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding: 16px;
+  background-color: var(--color-background-soft);
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  cursor: help;
+  transition:
+    background-color 0.2s,
+    transform 0.2s;
+}
+
+.card-info:hover {
+  background-color: var(--color-background-mute);
+  transform: translateY(-1px);
 }
 
 /* Mobile responsiveness */
