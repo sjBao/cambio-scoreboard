@@ -37,8 +37,6 @@ h1 {
 
   font-size: 2.6rem;
   font-weight: 500;
-  position: relative;
-  top: -10px;
 }
 
 /* Fallback for browsers that don't support background-clip at all */
