@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { ref, nextTick, onMounted } from 'vue'
 import { playerStore } from '@/store/players'
+import { useConfirmModal, confirmDelete } from '@/composables/useConfirmModal'
 import IconEdit from '@/components/icons/IconEdit.vue'
+import IconDelete from '@/components/icons/IconDelete.vue'
+import ConfirmModal from '@/components/ConfirmModal.vue'
 
 interface Props {
   params: {
@@ -18,6 +21,9 @@ const isEditing = ref(false)
 const editValue = ref('')
 const inputRef = ref<HTMLInputElement>()
 const displayName = ref(props.params.displayName)
+
+// Confirm modal setup
+const { modalRef, show: showConfirmModal, hide: hideConfirmModal, setLoading } = useConfirmModal()
 
 onMounted(() => {
   // Find the player by field (colId)
@@ -49,6 +55,33 @@ const cancelEdit = () => {
   editValue.value = displayName.value
   isEditing.value = false
 }
+
+const deletePlayer = () => {
+  const playerId = props.params.column.colId
+  console.log('****** deleting player with ID:', playerId, playerStore.players)
+  if (playerStore.players.length <= playerStore.minPlayers) {
+    alert(`Cannot remove player. Minimum of ${playerStore.minPlayers} players required.`)
+    return
+  }
+
+  showConfirmModal()
+}
+
+const handleConfirmDelete = () => {
+  const playerId = props.params.column.colId
+  setLoading(true)
+
+  // Simulate async operation
+  setTimeout(() => {
+    playerStore.removePlayer(playerId)
+    setLoading(false)
+    hideConfirmModal()
+  }, 300)
+}
+
+const handleCancelDelete = () => {
+  hideConfirmModal()
+}
 </script>
 
 <template>
@@ -62,13 +95,29 @@ const cancelEdit = () => {
       @keyup.enter="finishEdit"
       @keyup.escape="cancelEdit"
     />
-    <span v-else class="header-text" @click="startEdit" @dblclick="startEdit">
-      {{ displayName }}
-    </span>
-    <button v-if="!isEditing" class="edit-icon" @click="startEdit" title="Edit player name">
-      <IconEdit />
+    <div v-else class="player-name-section">
+      <span class="header-text" @click="startEdit" @dblclick="startEdit">
+        {{ displayName }}
+      </span>
+      <button class="edit-icon" @click="startEdit" title="Edit player name">
+        <IconEdit />
+      </button>
+    </div>
+    <button v-if="!isEditing" class="delete-icon" @click="deletePlayer" title="Remove player">
+      <IconDelete />
     </button>
   </div>
+
+  <!-- Confirm Modal - Teleported to body to escape AG-Grid container -->
+  <Teleport to="body">
+    <ConfirmModal
+      ref="modalRef"
+      v-bind="confirmDelete(displayName)"
+      @confirm="handleConfirmDelete"
+      @cancel="handleCancelDelete"
+      @close="handleCancelDelete"
+    />
+  </Teleport>
 </template>
 
 <style>
@@ -79,14 +128,25 @@ const cancelEdit = () => {
   gap: 4px;
   width: 100%;
   min-height: 20px;
-  cursor: pointer;
   padding: 2px 4px;
   border-radius: 2px;
   transition: background-color 0.2s ease;
 }
 
-.editable-header:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+.player-name-section {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  cursor: pointer;
+  border-radius: 2px;
+  padding: 2px;
+  margin: -2px;
+  transition: background-color 0.2s ease;
+}
+
+.player-name-section:hover {
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 .header-text {
@@ -102,7 +162,7 @@ const cancelEdit = () => {
   font-size: inherit;
   font-family: inherit;
   outline: none;
-  width: 100%;
+  width: calc(100%);
 }
 
 .editable-header .header-input:focus {
@@ -125,12 +185,38 @@ const cancelEdit = () => {
   justify-content: center;
 }
 
-.editable-header .edit-icon svg {
+.editable-header .delete-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  border-radius: 2px;
+  opacity: 1;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+.editable-header .delete-icon:hover {
+  color: #374151;
+  background-color: rgba(107, 114, 128, 0.1);
+}
+
+.editable-header .edit-icon svg,
+.editable-header .delete-icon svg {
   width: 12px;
   height: 12px;
 }
 
-.editable-header:hover .edit-icon {
+.player-name-section:hover .edit-icon {
   opacity: 0.6;
 }
 </style>
