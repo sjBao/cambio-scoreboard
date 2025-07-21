@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, nextTick, onMounted } from 'vue'
 import { playerStore } from '@/store/players'
+import IconEdit from '@/components/icons/IconEdit.vue'
 
 interface Props {
   params: {
@@ -65,7 +66,7 @@ const cancelEdit = () => {
       {{ displayName }}
     </span>
     <button v-if="!isEditing" class="edit-icon" @click="startEdit" title="Edit player name">
-      ✏️
+      <IconEdit />
     </button>
   </div>
 </template>
@@ -115,12 +116,21 @@ const cancelEdit = () => {
   cursor: pointer;
   padding: 2px;
   border-radius: 2px;
-  font-size: 12px;
   opacity: 0;
   transition: opacity 0.2s ease;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.editable-header .edit-icon svg {
+  width: 12px;
+  height: 12px;
 }
 
 .editable-header:hover .edit-icon {
-  opacity: 0.9;
+  opacity: 0.6;
 }
 </style>

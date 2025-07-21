@@ -10,6 +10,41 @@ This is v2 of the cambio scoreboard built using Vue 3, featuring a modern compon
 
 ## 🚀 Quick Start
 
+### Prerequisites
+
+This project uses Node.js version specified in `.nvmrc`. Make sure you're using the correct version:
+
+**Using nvm:**
+
+```sh
+# If you have nvm installed, use the project's Node.js version
+nvm use
+
+# Or install the specific version if you don't have it
+nvm install 22.17.1
+nvm use 22.17.1
+```
+
+**Using asdf:**
+
+```sh
+# If you have asdf installed with nodejs plugin
+asdf install nodejs 22.17.1
+asdf local nodejs 22.17.1
+
+# Or if you have a .tool-versions file, simply run:
+asdf install
+```
+
+**Verify installation:**
+
+```sh
+# Verify you're using the correct version
+node --version  # Should output v22.17.1
+```
+
+### Installation & Development
+
 ```sh
 # Install dependencies
 pnpm install
