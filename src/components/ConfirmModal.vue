@@ -152,7 +152,7 @@ defineExpose({
 .btn {
   padding: 8px 16px;
   border-radius: 6px;
-  border: 1px solid transparent;
+  border: 1px solid rgba(0, 0, 0, 0);
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -199,7 +199,7 @@ defineExpose({
 .spinner {
   width: 16px;
   height: 16px;
-  border: 2px solid transparent;
+  border: 2px solid rgba(0, 0, 0, 0);
   border-top: 2px solid currentColor;
   border-radius: 50%;
   animation: spin 1s linear infinite;

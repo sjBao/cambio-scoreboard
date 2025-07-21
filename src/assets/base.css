@@ -48,16 +48,6 @@
     --color-heading: var(--vt-c-text-dark-1);
     --color-text: var(--vt-c-text-dark-2);
   }
-
-  /* Direct styles for iOS Safari compatibility */
-  body {
-    background-color: #181818 !important;
-    color: #ffffff !important;
-  }
-
-  html {
-    background-color: #181818 !important;
-  }
 }
 
 *,
@@ -93,52 +83,4 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-/* Explicit iOS Safari dark mode fix */
-@supports (-webkit-appearance: none) {
-  @media (prefers-color-scheme: dark) {
-    body {
-      background: #181818 !important;
-      color: #ffffff !important;
-    }
-
-    #app {
-      background: #181818;
-    }
-  }
-}
-
-/* Additional iOS-specific targeting */
-@supports (-webkit-touch-callout: none) {
-  @media (prefers-color-scheme: dark) {
-    html {
-      background-color: #181818 !important;
-    }
-
-    body {
-      background-color: #181818 !important;
-      color: #ffffff !important;
-    }
-
-    #app {
-      background-color: #181818 !important;
-      color: #ffffff !important;
-    }
-  }
-}
-
-/* Force dark mode for mobile WebKit browsers */
-@media screen and (max-width: 768px) {
-  @media (prefers-color-scheme: dark) {
-    html,
-    body {
-      background-color: #181818 !important;
-      color: #ffffff !important;
-    }
-
-    * {
-      background-color: inherit;
-    }
-  }
 }

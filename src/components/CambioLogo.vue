@@ -23,34 +23,16 @@ h1 {
 
   /* iOS Safari specific fixes */
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: rgba(0, 0, 0, 0); /* Transparent text fill */
   background-clip: text;
 
   /* Fallback for very old browsers */
-  color: transparent;
+  color: rgba(0, 0, 0, 0); /* Transparent text fill */
 
   font-size: 2.6rem;
   font-weight: 500;
   position: relative;
   top: -10px;
-}
-
-/* iOS-specific override */
-@supports (-webkit-touch-callout: none) {
-  h1 {
-    /* Force solid colors for iOS if gradient fails */
-    background: linear-gradient(
-      to right,
-      #b8860b 0%,
-      #daa520 25%,
-      #f0e68c 50%,
-      #ffffff 75%,
-      #ffffff 100%
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
 }
 
 /* Fallback for browsers that don't support background-clip at all */
