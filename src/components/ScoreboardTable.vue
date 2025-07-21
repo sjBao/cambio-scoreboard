@@ -11,6 +11,7 @@ import {
 } from 'ag-grid-community'
 import { AgGridVue } from 'ag-grid-vue3'
 import ConfirmModal from '@/components/ConfirmModal.vue'
+import EditableHeader from '@/components/EditableHeader.vue'
 ModuleRegistry.registerModules([AllCommunityModule])
 
 const themeQuartzDark = themeQuartz.withPart(colorSchemeDark)
@@ -37,8 +38,11 @@ const columnDefs = computed(() => {
 
   const playerColumns = playerStore.players.map<ColDef>((player) => ({
     editable: (params) => params.data.roundId !== 'Totals',
+    enableCellChangeFlash: true,
+    cellEditor: 'agNumberCellEditor',
     field: player.id,
     headerName: player.name,
+    headerComponent: EditableHeader,
     initialWidth: 120,
     valueFormatter(params) {
       const { data, value } = params
@@ -50,6 +54,7 @@ const columnDefs = computed(() => {
       if (data.roundId === 'Totals') return
       roundStore.updateRound(data.roundId, colDef.field!, newValue)
     },
+    sortable: false,
   }))
 
   return [totalsColumn, ...playerColumns]
@@ -152,12 +157,14 @@ const confirmResetRounds = () => {
       <button class="primary" @click="addRound">Add Round</button>
       <button class="secondary" @click="confirmResetRounds">Reset Rounds</button>
     </div>
+
     <AgGridVue
       :columnDefs="columnDefs"
       :domLayout="'autoHeight'"
       :pinnedTopRowData="[totalsRow]"
       :rowData="rowData"
       :theme="themeQuartzDark"
+      :getRowId="(params) => String(params.data.roundId)"
     />
 
     <!-- Confirm Modal -->
