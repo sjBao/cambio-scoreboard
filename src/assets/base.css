@@ -108,3 +108,37 @@ body {
     }
   }
 }
+
+/* Additional iOS-specific targeting */
+@supports (-webkit-touch-callout: none) {
+  @media (prefers-color-scheme: dark) {
+    html {
+      background-color: #181818 !important;
+    }
+
+    body {
+      background-color: #181818 !important;
+      color: #ffffff !important;
+    }
+
+    #app {
+      background-color: #181818 !important;
+      color: #ffffff !important;
+    }
+  }
+}
+
+/* Force dark mode for mobile WebKit browsers */
+@media screen and (max-width: 768px) {
+  @media (prefers-color-scheme: dark) {
+    html,
+    body {
+      background-color: #181818 !important;
+      color: #ffffff !important;
+    }
+
+    * {
+      background-color: inherit;
+    }
+  }
+}
