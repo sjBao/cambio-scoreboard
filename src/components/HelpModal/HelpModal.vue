@@ -8,8 +8,6 @@
 
       <div class="modal-content">
         <div class="card-section">
-          <h3>Special Action Cards</h3>
-
           <div class="card-info">
             <div class="card-icons">
               <IconCard7 />
