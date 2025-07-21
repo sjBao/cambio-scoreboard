@@ -1,19 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
   <defs>
     <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#daa520;stop-opacity:1" />
-      <stop offset="33%" style="stop-color:#daa520;stop-opacity:1" />
-      <stop offset="96%" style="stop-color:#ffffff;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:rgba(218, 165, 32, 1);stop-opacity:1" />
+      <stop offset="33%" style="stop-color:rgba(218, 165, 32, 1);stop-opacity:1" />
+      <stop offset="96%" style="stop-color:rgba(255, 255, 255, 1);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgba(255, 255, 255, 1);stop-opacity:1" />
     </linearGradient>
   </defs>
   
   <!-- Fill entire space with app's dark background -->
-  <rect x="0" y="0" width="64" height="64" fill="#181818"/>
+  <rect x="0" y="0" width="64" height="64" fill="rgba(24, 24, 24, 1)"/>
   
   <!-- Large card taking up almost entire space with app's gradient -->
-  <rect x="4" y="4" width="56" height="56" rx="6" ry="6" fill="url(#cardGradient)" stroke="#2c3e50" stroke-width="3"/>
+  <rect x="4" y="4" width="56" height="56" rx="6" ry="6" fill="url(#cardGradient)" stroke="rgba(44, 62, 80, 1)" stroke-width="3"/>
   
   <!-- Massive, ultra-bold "C" using app's text color -->
-  <text x="32" y="45" font-family="Impact, Arial Black, sans-serif" font-size="36" font-weight="900" text-anchor="middle" fill="#2c3e50" stroke="#ffffff" stroke-width="1">C</text>
+  <text x="32" y="45" font-family="Impact, Arial Black, sans-serif" font-size="36" font-weight="900" text-anchor="middle" fill="rgba(44, 62, 80, 1)" stroke="rgba(255, 255, 255, 1)" stroke-width="1">C</text>
 </svg>

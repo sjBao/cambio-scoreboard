@@ -13,10 +13,16 @@ defineProps<{
 <style scoped>
 h1 {
   /* Fallback color for browsers that don't support background-clip */
-  color: #daa520;
+  color: rgba(218, 165, 32, 1);
 
   /* Gradient text effect with more explicit iOS handling */
-  background: linear-gradient(-90deg, #daa520 0%, #daa520 33%, #ffffff 96%, #ffffff 100%);
+  background: linear-gradient(
+    -90deg,
+    rgba(218, 165, 32, 1) 0%,
+    rgba(218, 165, 32, 1) 33%,
+    rgba(255, 255, 255, 1) 96%,
+    rgba(255, 255, 255, 1) 100%
+  );
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: 0 0;
@@ -39,8 +45,8 @@ h1 {
 @supports not (-webkit-background-clip: text) {
   h1 {
     background: none;
-    color: #daa520;
-    -webkit-text-fill-color: #daa520;
+    color: rgba(218, 165, 32, 1);
+    -webkit-text-fill-color: rgba(218, 165, 32, 1);
   }
 }
 
