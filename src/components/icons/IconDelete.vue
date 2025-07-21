@@ -1,15 +1,15 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" viewBox="0 0 16 20" fill="none">
     <!-- Trash can lid -->
-    <path d="M2 4h12v1H2V4z" fill="currentColor" />
+    <path d="M2 6h12v1H2V6z" fill="currentColor" />
 
     <!-- Trash can body -->
-    <path d="M3 5h10l-1 9H4L3 5z" fill="currentColor" />
+    <path d="M3 7h10l-1 11H4L3 7z" fill="currentColor" />
 
     <!-- Handle -->
-    <path d="M6 2h4v1H6V2z" fill="currentColor" />
+    <path d="M6 3h4v2H6V3z" fill="currentColor" />
 
     <!-- Vertical lines inside trash can -->
-    <path d="M6 7v5M8 7v5M10 7v5" stroke="white" stroke-width="0.5" />
+    <path d="M6 9v7M8 9v7M10 9v7" stroke="white" stroke-width="0.5" />
   </svg>
 </template>

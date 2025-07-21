@@ -189,8 +189,8 @@ const handleCancelDelete = () => {
   transition:
     color 0.2s ease,
     background-color 0.2s ease;
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -204,10 +204,14 @@ const handleCancelDelete = () => {
   background-color: rgba(107, 114, 128, 0.1);
 }
 
-.editable-header .edit-icon svg,
-.editable-header .delete-icon svg {
+.editable-header .edit-icon svg {
   width: 12px;
   height: 12px;
+}
+
+.editable-header .delete-icon svg {
+  width: 14px;
+  height: 16px;
 }
 
 .player-name-section:hover .edit-icon {
