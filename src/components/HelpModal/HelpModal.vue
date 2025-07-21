@@ -11,7 +11,10 @@
           <h3>Special Action Cards</h3>
 
           <div class="card-info">
-            <div class="card-number">7, 8</div>
+            <div class="card-icons">
+              <IconCard7 />
+              <IconCard8 />
+            </div>
             <div class="card-description">
               <h4>Look at Self</h4>
               <p>Look at one of your own cards without revealing it to other players.</p>
@@ -19,7 +22,10 @@
           </div>
 
           <div class="card-info">
-            <div class="card-number">9, 10</div>
+            <div class="card-icons">
+              <IconCard9 />
+              <IconCard10 />
+            </div>
             <div class="card-description">
               <h4>Look at Others</h4>
               <p>Look at one of another player's cards without them knowing which card you saw.</p>
@@ -27,7 +33,10 @@
           </div>
 
           <div class="card-info">
-            <div class="card-number">J, Q</div>
+            <div class="card-icons">
+              <IconCardJack />
+              <IconCardQueen />
+            </div>
             <div class="card-description">
               <h4>Blind Swap</h4>
               <p>
@@ -38,7 +47,9 @@
           </div>
 
           <div class="card-info">
-            <div class="card-number">Black K</div>
+            <div class="card-icons">
+              <IconCardKingBlack />
+            </div>
             <div class="card-description">
               <h4>Look & Swap</h4>
               <p>
@@ -49,7 +60,9 @@
           </div>
 
           <div class="card-info">
-            <div class="card-number">Red K</div>
+            <div class="card-icons">
+              <IconCardKingRed />
+            </div>
             <div class="card-description">
               <h4>-1 Point</h4>
               <p>Worth negative one point at the end of the round (reduces your total score).</p>
@@ -57,7 +70,9 @@
           </div>
 
           <div class="card-info">
-            <div class="card-number">Joker</div>
+            <div class="card-icons">
+              <IconCardJoker />
+            </div>
             <div class="card-description">
               <h4>Zero Points</h4>
               <p>Worth zero points at the end of the round (neutral card).</p>
@@ -78,6 +93,16 @@
 </template>
 
 <script setup lang="ts">
+import IconCard7 from '../icons/IconCard7.vue'
+import IconCard8 from '../icons/IconCard8.vue'
+import IconCard9 from '../icons/IconCard9.vue'
+import IconCard10 from '../icons/IconCard10.vue'
+import IconCardJack from '../icons/IconCardJack.vue'
+import IconCardQueen from '../icons/IconCardQueen.vue'
+import IconCardKingBlack from '../icons/IconCardKingBlack.vue'
+import IconCardKingRed from '../icons/IconCardKingRed.vue'
+import IconCardJoker from '../icons/IconCardJoker.vue'
+
 interface Props {
   isOpen: boolean
 }
@@ -178,26 +203,13 @@ const closeModal = () => {
   border: 1px solid var(--color-border);
 }
 
-.card-number {
+.card-icons {
+  display: flex;
+  gap: 8px;
   flex-shrink: 0;
-  background: linear-gradient(
-    -90deg,
-    rgba(218, 165, 32, 1) 0%,
-    rgba(218, 165, 32, 1) 33%,
-    rgba(255, 255, 255, 1) 96%,
-    rgba(255, 255, 255, 1) 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-weight: 700;
-  font-size: 1.1rem;
-  min-width: 60px;
-  text-align: center;
-  padding: 8px;
-  border-radius: 6px;
-  background-color: var(--color-background-mute);
-  color: var(--color-heading);
+  align-items: center;
+  min-width: 80px;
+  justify-content: center;
 }
 
 .card-description h4 {
@@ -263,9 +275,9 @@ const closeModal = () => {
     gap: 12px;
   }
 
-  .card-number {
+  .card-icons {
     min-width: auto;
-    text-align: left;
+    justify-content: flex-start;
   }
 }
 </style>
