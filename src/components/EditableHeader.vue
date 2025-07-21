@@ -23,7 +23,7 @@ const inputRef = ref<HTMLInputElement>()
 const displayName = ref(props.params.displayName)
 
 // Confirm modal setup
-const { modalRef, show: showConfirmModal, hide: hideConfirmModal, setLoading } = useConfirmModal()
+const { modalRef, show: showConfirmModal, hide: hideConfirmModal } = useConfirmModal()
 
 onMounted(() => {
   // Find the player by field (colId)
@@ -69,14 +69,8 @@ const deletePlayer = () => {
 
 const handleConfirmDelete = () => {
   const playerId = props.params.column.colId
-  setLoading(true)
-
-  // Simulate async operation
-  setTimeout(() => {
-    playerStore.removePlayer(playerId)
-    setLoading(false)
-    hideConfirmModal()
-  }, 300)
+  playerStore.removePlayer(playerId)
+  hideConfirmModal()
 }
 
 const handleCancelDelete = () => {

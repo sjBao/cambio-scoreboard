@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, reactive } from 'vue'
+import { computed } from 'vue'
 import { playerStore } from '@/store/players'
 import { roundStore, type Round } from '@/store/rounds'
 import {
@@ -12,6 +12,7 @@ import {
 import { AgGridVue } from 'ag-grid-vue3'
 import ConfirmModal from '@/components/ConfirmModal.vue'
 import EditableHeader from '@/components/EditableHeader.vue'
+import { useConfirmModal } from '@/composables/useConfirmModal'
 ModuleRegistry.registerModules([AllCommunityModule])
 
 const themeQuartzDark = themeQuartz.withPart(colorSchemeDark)
@@ -97,55 +98,16 @@ function addRound() {
   roundStore.addRound(newRound)
 }
 
-// Modal functionality
-const confirmModal = ref()
-const modalProps = reactive({
-  title: 'Confirm Action',
-  message: 'Are you sure you want to continue?',
-  confirmText: 'Confirm',
-  cancelText: 'Cancel',
-  variant: 'info' as 'danger' | 'warning' | 'info' | 'success',
-})
-const currentAction = ref<(() => void | Promise<void>) | null>(null)
-
-const showConfirmModal = (props: typeof modalProps, action: () => void | Promise<void>) => {
-  Object.assign(modalProps, props)
-  currentAction.value = action
-  confirmModal.value?.show()
-}
-
-const handleConfirm = async () => {
-  if (currentAction.value) {
-    try {
-      await currentAction.value()
-      confirmModal.value?.hide()
-    } catch (error) {
-      console.error('Action failed:', error)
-      confirmModal.value?.setLoading(false)
-    }
-  } else {
-    confirmModal.value?.hide()
-  }
-}
-
-const handleCancel = () => {
-  currentAction.value = null
-}
+// Modal functionality using composable
+const { modalRef: confirmModal, show: showConfirmModal, hide: hideConfirmModal } = useConfirmModal()
 
 const confirmResetRounds = () => {
-  showConfirmModal(
-    {
-      title: 'Reset All Rounds',
-      message:
-        'Are you sure you want to reset all rounds? This will clear all scores and cannot be undone.',
-      confirmText: 'Reset',
-      cancelText: 'Cancel',
-      variant: 'danger',
-    },
-    () => {
-      roundStore.resetRounds()
-    },
-  )
+  showConfirmModal()
+}
+
+const handleConfirmReset = () => {
+  roundStore.resetRounds()
+  hideConfirmModal()
 }
 </script>
 
@@ -170,14 +132,14 @@ const confirmResetRounds = () => {
     <!-- Confirm Modal -->
     <ConfirmModal
       ref="confirmModal"
-      :title="modalProps.title"
-      :message="modalProps.message"
-      :confirmText="modalProps.confirmText"
-      :cancelText="modalProps.cancelText"
-      :variant="modalProps.variant"
-      @confirm="handleConfirm"
-      @cancel="handleCancel"
-      @close="handleCancel"
+      title="Reset All Rounds"
+      message="Are you sure you want to reset all rounds? This will clear all scores and cannot be undone."
+      confirmText="Reset"
+      cancelText="Cancel"
+      variant="danger"
+      @confirm="handleConfirmReset"
+      @cancel="hideConfirmModal"
+      @close="hideConfirmModal"
     />
   </div>
 </template>
