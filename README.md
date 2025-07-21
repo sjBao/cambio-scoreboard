@@ -107,6 +107,19 @@ pnpm dev
 pnpm build
 ```
 
+### Deploy to GitHub Pages
+
+This project is automatically deployed to GitHub Pages using GitHub Actions. Every push to the `main` branch will trigger a new deployment.
+
+- **Live Demo**: [https://sjbao.github.io/cambio-scoreboard/](https://sjbao.github.io/cambio-scoreboard/)
+- **Deployment Status**: Check the Actions tab in this repository
+
+To deploy manually:
+
+1. Push your changes to the `main` branch
+2. GitHub Actions will automatically build and deploy to `gh-pages` branch
+3. Your site will be available at the URL above within a few minutes
+
 ### Run Unit Tests with [Vitest](https://vitest.dev/)
 
 ```sh
