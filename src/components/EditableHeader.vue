@@ -57,8 +57,6 @@ const cancelEdit = () => {
 }
 
 const deletePlayer = () => {
-  const playerId = props.params.column.colId
-  console.log('****** deleting player with ID:', playerId, playerStore.players)
   if (playerStore.players.length <= playerStore.minPlayers) {
     alert(`Cannot remove player. Minimum of ${playerStore.minPlayers} players required.`)
     return
