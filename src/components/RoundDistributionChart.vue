@@ -35,19 +35,22 @@ const borderColors = [
 ]
 
 const chartData = computed(() => {
-  const labels = roundStore.rounds.map((round) => `Round ${round.roundId.replace(/[a-zA-Z]/g, '')}`)
+  const labels = playerStore.players.map((player) => player.name || player.id)
 
-  const datasets = playerStore.players.map((player, index) => {
-    const data = roundStore.rounds.map((round) => Number(round[player.id] || 0))
-
-    return {
-      label: player.name || player.id,
-      data,
-      backgroundColor: playerColors[index % playerColors.length],
-      borderColor: borderColors[index % borderColors.length],
-      borderWidth: 1,
-    }
+  // Calculate average scores
+  const averageData = playerStore.players.map((player) => {
+    const scores = roundStore.rounds.map((round) => Number(round[player.id] || 0))
+    const sum = scores.reduce((acc, score) => acc + score, 0)
+    return scores.length > 0 ? sum / scores.length : 0
   })
+
+  const datasets = [{
+    label: 'Average Scores',
+    data: averageData,
+    backgroundColor: playerStore.players.map((_, index) => playerColors[index % playerColors.length]),
+    borderColor: playerStore.players.map((_, index) => borderColors[index % borderColors.length]),
+    borderWidth: 1,
+  }]
 
   return {
     labels,
@@ -69,7 +72,7 @@ const chartOptions: ChartOptions<'bar'> = {
   plugins: {
     title: {
       display: true,
-      text: 'Round-by-Round Score Distribution',
+      text: 'Average Scores',
       color: '#ffffff',
     },
     legend: {
@@ -82,7 +85,7 @@ const chartOptions: ChartOptions<'bar'> = {
     x: {
       title: {
         display: true,
-        text: 'Round',
+        text: 'Player',
         color: '#ffffff',
       },
       ticks: {
@@ -95,7 +98,7 @@ const chartOptions: ChartOptions<'bar'> = {
     y: {
       title: {
         display: true,
-        text: 'Score',
+        text: 'Average Scores',
         color: '#ffffff',
       },
       ticks: {
