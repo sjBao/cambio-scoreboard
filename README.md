@@ -2,11 +2,12 @@
 
 This is v2 of the cambio scoreboard built using Vue 3, featuring a modern component-based architecture with reusable UI components.
 
+Deployed: https://sjbao.github.io/cambio-scoreboard/
+
 ## 📚 Documentation
 
 - **[Component Documentation](./docs/README.md)** - Detailed component APIs and usage guides
 - **[ConfirmModal Component](./docs/components/ConfirmModal.md)** - Reusable confirmation modal
-- **[Live Examples](./src/components/examples/)** - Interactive component demos
 
 ## 🚀 Quick Start
 
