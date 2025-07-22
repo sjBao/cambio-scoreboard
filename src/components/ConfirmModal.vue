@@ -59,7 +59,6 @@ const loading = ref(false)
 
 const show = () => {
   isVisible.value = true
-  console.log('****** hello???? show', isVisible)
 }
 
 const hide = () => {
