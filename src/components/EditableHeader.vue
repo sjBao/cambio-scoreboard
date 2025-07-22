@@ -198,7 +198,7 @@ const handleCancelDelete = () => {
 }
 
 .editable-header .delete-icon:hover {
-  color: #374151;
+  color: rgba(155, 165, 181, 1);
   background-color: rgba(107, 114, 128, 0.1);
 }
 
