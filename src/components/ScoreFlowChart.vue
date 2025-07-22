@@ -40,9 +40,10 @@ const chartData = computed(() => {
       label: player.name || player.id,
       data,
       borderColor: playerColors[index % playerColors.length],
-      backgroundColor: playerColors[index % playerColors.length] + '20',
+      backgroundColor: playerColors[index % playerColors.length],
       tension: 0.1,
       fill: false,
+      pointStyle: 'rect',
     }
   })
 
@@ -72,7 +73,12 @@ const chartOptions: ChartOptions<'line'> = {
     legend: {
       labels: {
         color: '#ffffff',
+        usePointStyle: true,
+        boxWidth: 15,
+        boxHeight: 15,
+        padding: 15,
       },
+      onClick: () => {},
     },
   },
   scales: {

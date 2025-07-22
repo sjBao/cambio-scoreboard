@@ -76,9 +76,7 @@ const chartOptions: ChartOptions<'bar'> = {
       color: '#ffffff',
     },
     legend: {
-      labels: {
-        color: '#ffffff',
-      },
+      display: false,
     },
   },
   scales: {
