@@ -41,6 +41,11 @@ const columnDefs = computed(() => {
     editable: (params) => params.data.roundId !== 'Totals',
     enableCellChangeFlash: true,
     cellEditor: 'agNumberCellEditor',
+    cellEditorParams: {
+      min: -10, // Minimum score accounting for negative points from red kings and house rules.
+      max: 320, // This is the max possible score if a player has all cards in a deck without red kings.
+      step: 1,
+    },
     field: player.id,
     headerName: player.name,
     headerComponent: EditableHeader,
