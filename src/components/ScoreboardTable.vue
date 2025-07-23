@@ -12,6 +12,7 @@ import {
 import { AgGridVue } from 'ag-grid-vue3'
 import ConfirmModal from '@/components/ConfirmModal.vue'
 import EditableHeader from '@/components/EditableHeader.vue'
+import TableStencil from '@/components/TableStencil.vue'
 import { useConfirmModal } from '@/composables/useConfirmModal'
 ModuleRegistry.registerModules([AllCommunityModule])
 
@@ -125,7 +126,16 @@ const handleConfirmReset = () => {
       <button class="secondary" @click="confirmResetRounds">Reset Rounds</button>
     </div>
 
+    <!-- Loading state -->
+    <TableStencil 
+      v-if="!roundStore.isLoaded || !playerStore.isLoaded"
+      :column-count="Math.max(playerStore.players.length, 3)"
+      :row-count="Math.max(roundStore.rounds.length, 4)"
+    />
+
+    <!-- Main grid -->
     <AgGridVue
+      v-else
       :columnDefs="columnDefs"
       :domLayout="'autoHeight'"
       :pinnedTopRowData="[totalsRow]"
