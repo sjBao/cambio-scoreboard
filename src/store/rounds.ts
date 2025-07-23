@@ -1,5 +1,5 @@
 import { reactive, watch } from 'vue'
-import { indexedDBService } from '@/utils/indexeddb'
+import { roundsIndexedDBService } from '@/services/storage'
 
 export interface Round {
   roundId: string
@@ -12,10 +12,9 @@ export const roundStore = reactive({
 
   async initializeFromStorage() {
     try {
-      const storedRounds = await indexedDBService.loadRounds()
+      const storedRounds = await roundsIndexedDBService.loadRounds()
       this.rounds = storedRounds
       this.isLoaded = true
-      console.log('Loaded rounds from IndexedDB:', storedRounds.length, 'rounds')
     } catch (error) {
       console.error('Failed to load rounds from IndexedDB:', error)
       this.isLoaded = true // Still mark as loaded even if there was an error
@@ -24,8 +23,7 @@ export const roundStore = reactive({
 
   async saveToStorage() {
     try {
-      await indexedDBService.saveRounds(this.rounds)
-      console.log('Saved rounds to IndexedDB:', this.rounds.length, 'rounds')
+      await roundsIndexedDBService.saveRounds(this.rounds)
     } catch (error) {
       console.error('Failed to save rounds to IndexedDB:', error)
     }
@@ -45,10 +43,9 @@ export const roundStore = reactive({
   async resetRounds() {
     this.rounds = []
     try {
-      await indexedDBService.clearRounds()
-      console.log('Cleared rounds from IndexedDB')
+      await roundsIndexedDBService.clearRounds()
     } catch (error) {
-      console.error('Failed to clear rounds from IndexedDB:', error)
+      console.error('Failed to clear rounds:', error)
     }
   },
 })

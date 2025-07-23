@@ -1,5 +1,5 @@
 import { reactive, watch } from 'vue'
-import { indexedDBService } from '@/utils/indexeddb'
+import { playersIndexedDBService } from '@/services/storage'
 
 export interface Player {
   id: string
@@ -23,15 +23,13 @@ export const playerStore = reactive({
 
   async initializeFromStorage() {
     try {
-      const storedPlayers = await indexedDBService.loadPlayers()
+      const storedPlayers = await playersIndexedDBService.loadPlayers()
       if (storedPlayers.length > 0) {
         this.players = storedPlayers
-        console.log('Loaded players from IndexedDB:', storedPlayers.length, 'players')
       } else {
         // No saved players, use defaults and save them
         this.players = [...defaultPlayers]
         await this.saveToStorage()
-        console.log('Using default players and saving to IndexedDB')
       }
       this.isLoaded = true
     } catch (error) {
@@ -43,8 +41,7 @@ export const playerStore = reactive({
 
   async saveToStorage() {
     try {
-      await indexedDBService.savePlayers(this.players)
-      console.log('Saved players to IndexedDB:', this.players.length, 'players')
+      await playersIndexedDBService.savePlayers(this.players)
     } catch (error) {
       console.error('Failed to save players to IndexedDB:', error)
     }
@@ -81,11 +78,10 @@ export const playerStore = reactive({
   async resetToDefaults() {
     this.players = [...defaultPlayers]
     try {
-      await indexedDBService.clearPlayers()
+      await playersIndexedDBService.clearPlayers()
       await this.saveToStorage()
-      console.log('Reset players to defaults and cleared IndexedDB')
     } catch (error) {
-      console.error('Failed to reset players in IndexedDB:', error)
+      console.error('Failed to reset players:', error)
     }
   },
 })

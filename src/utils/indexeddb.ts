@@ -37,13 +37,11 @@ class IndexedDBService {
         // Create rounds object store if it doesn't exist
         if (!db.objectStoreNames.contains(ROUNDS_STORE)) {
           db.createObjectStore(ROUNDS_STORE, { keyPath: 'roundId' })
-          console.log('Created rounds object store')
         }
 
         // Create players object store if it doesn't exist
         if (!db.objectStoreNames.contains(PLAYERS_STORE)) {
           db.createObjectStore(PLAYERS_STORE, { keyPath: 'id' })
-          console.log('Created players object store')
         }
       }
     })
