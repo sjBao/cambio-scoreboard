@@ -12,6 +12,7 @@ import {
 import { AgGridVue } from 'ag-grid-vue3'
 import ConfirmModal from '@/components/ConfirmModal.vue'
 import EditableHeader from '@/components/EditableHeader.vue'
+import TableStencil from '@/components/TableStencil.vue'
 import { useConfirmModal } from '@/composables/useConfirmModal'
 ModuleRegistry.registerModules([AllCommunityModule])
 
@@ -126,10 +127,11 @@ const handleConfirmReset = () => {
     </div>
 
     <!-- Loading state -->
-    <div v-if="!roundStore.isLoaded || !playerStore.isLoaded" class="loading-container">
-      <div class="loading-spinner"></div>
-      <p>Loading scoreboard data...</p>
-    </div>
+    <TableStencil 
+      v-if="!roundStore.isLoaded || !playerStore.isLoaded"
+      :column-count="Math.max(playerStore.players.length, 3)"
+      :row-count="Math.max(roundStore.rounds.length, 4)"
+    />
 
     <!-- Main grid -->
     <AgGridVue
@@ -196,34 +198,6 @@ const handleConfirmReset = () => {
         border-color: #6b7280;
       }
     }
-  }
-}
-
-.loading-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 3rem;
-  gap: 1rem;
-  color: #d1d5db;
-}
-
-.loading-spinner {
-  width: 40px;
-  height: 40px;
-  border: 3px solid rgba(255, 255, 255, 0.1);
-  border-top: 3px solid #46a049;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
   }
 }
 </style>
