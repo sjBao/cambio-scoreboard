@@ -126,7 +126,7 @@ const handleConfirmReset = () => {
     </div>
 
     <!-- Loading state -->
-    <div v-if="!roundStore.isLoaded" class="loading-container">
+    <div v-if="!roundStore.isLoaded || !playerStore.isLoaded" class="loading-container">
       <div class="loading-spinner"></div>
       <p>Loading scoreboard data...</p>
     </div>
