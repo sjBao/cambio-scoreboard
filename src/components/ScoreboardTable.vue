@@ -8,6 +8,7 @@ import {
   colorSchemeDark,
   themeQuartz,
   type ColDef,
+  type INumberCellEditorParams,
 } from 'ag-grid-community'
 import { AgGridVue } from 'ag-grid-vue3'
 import ConfirmModal from '@/components/ConfirmModal.vue'
@@ -46,7 +47,8 @@ const columnDefs = computed(() => {
       min: -10, // Minimum score accounting for negative points from red kings and house rules.
       max: 320, // This is the max possible score if a player has all cards in a deck without red kings.
       step: 1,
-    },
+      showStepperButtons: true,
+    } as INumberCellEditorParams,
     field: player.id,
     headerName: player.name,
     headerComponent: EditableHeader,
@@ -62,6 +64,7 @@ const columnDefs = computed(() => {
       roundStore.updateRound(data.roundId, colDef.field!, newValue)
     },
     sortable: false,
+    suppressMovable: true,
   }))
 
   return [totalsColumn, ...playerColumns]
@@ -121,9 +124,9 @@ const handleConfirmReset = () => {
   <div class="ag-theme-quartz-dark ag-grid-wrapper">
     <div class="control-panel">
       <!-- Control panel -->
-      <button class="primary" @click="addPlayer">Add Player</button>
-      <button class="primary" @click="addRound">Add Round</button>
-      <button class="secondary" @click="confirmResetRounds">Reset Rounds</button>
+      <button class="primary" @click="addPlayer">Add player</button>
+      <button class="primary" @click="addRound">Add round</button>
+      <button class="secondary" @click="confirmResetRounds">Reset rounds</button>
     </div>
 
     <!-- Loading state -->
