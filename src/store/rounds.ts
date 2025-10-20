@@ -1,5 +1,6 @@
 import { reactive, watch } from 'vue'
 import { roundsIndexedDBService } from '@/services/storage'
+import { playerStore } from './players'
 
 export interface Round {
   roundId: string
@@ -7,13 +8,17 @@ export interface Round {
 }
 
 export const roundStore = reactive({
-  rounds: [] as Round[],
+  rounds: [{ roundId: 'round1', player1: 0, player2: 0, player3: 0, player4: 0 }] as Round[],
   isLoaded: false,
 
   async initializeFromStorage() {
     try {
       const storedRounds = await roundsIndexedDBService.loadRounds()
-      this.rounds = storedRounds
+      if (storedRounds?.length === 0) {
+        this.resetRounds()
+      } else {
+        this.rounds = storedRounds
+      }
       this.isLoaded = true
     } catch (error) {
       console.error('Failed to load rounds from IndexedDB:', error)
@@ -41,9 +46,14 @@ export const roundStore = reactive({
   },
 
   async resetRounds() {
-    this.rounds = []
     try {
       await roundsIndexedDBService.clearRounds()
+      const newRound: Round = { roundId: "round1" }
+      for (const player of playerStore.players) {
+        newRound[player.id] = 0
+      }
+      roundStore.addRound(newRound)
+      this.rounds = [newRound]
     } catch (error) {
       console.error('Failed to clear rounds:', error)
     }
